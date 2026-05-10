@@ -33,7 +33,7 @@ namespace KeybindLib.Patches
             Transform scrollBox = menuPages.menuPage.transform.GetChild(3);
             MenuScrollBox menuScrollBox = scrollBox.GetComponent<MenuScrollBox>();
             Transform content = scrollBox.GetChild(1).GetChild(0);
-            GameObject header = content.Find("Header Expressions").gameObject;
+            GameObject header = content.Find("Header Player Expressions").gameObject;
             Vector3 headerPosition = header.transform.localPosition;
             GameObject category = content.Find("Header Grabbing").gameObject;
             Vector3 categoryPosition = category.transform.localPosition;
@@ -78,6 +78,8 @@ namespace KeybindLib.Patches
                 {
                     currentPosition -= _headerOffset;
                     GameObject headerObject = Object.Instantiate(header);
+                    foreach (LocalizationChangedEvent e in headerObject.GetComponentsInChildren<LocalizationChangedEvent>())
+                        Object.Destroy(e);
                     headerObject.name = $"Header {keybind.modGuid}";
                     headerObject.GetComponentInChildren<TextMeshProUGUI>().text = keybind.modGuid;
                     headerObject.transform.SetParent(content);
@@ -91,6 +93,8 @@ namespace KeybindLib.Patches
                     if (applyHeaderOffset)
                         currentPosition -= _categoryHeaderOffset;
                     GameObject categoryObject = Object.Instantiate(category);
+                    foreach (LocalizationChangedEvent e in categoryObject.GetComponentsInChildren<LocalizationChangedEvent>())
+                        Object.Destroy(e);
                     categoryObject.name = $"Category {keybind.modGuid} {keybind.category}";
                     categoryObject.GetComponentInChildren<TextMeshProUGUI>().text = keybind.category;
                     categoryObject.transform.SetParent(content);
@@ -106,6 +110,8 @@ namespace KeybindLib.Patches
                     if (applyCategoryOffset)
                         currentPosition -= _buttonCategoryOffset;
                     GameObject buttonObject = Object.Instantiate(button);
+                    foreach (LocalizationChangedEvent e in buttonObject.GetComponentsInChildren<LocalizationChangedEvent>())
+                        Object.Destroy(e);
                     string name = keybind.inputAction.name;
                     buttonObject.name = $"Big Button {keybind.modGuid} {name}";
                     buttonObject.GetComponent<MenuBigButton>().buttonTitle = name;
@@ -117,6 +123,8 @@ namespace KeybindLib.Patches
                     {
                         currentPosition -= _buttonBoolSettingOffset;
                         GameObject boolSettingObject = Object.Instantiate(buttonBoolSetting);
+                        foreach (LocalizationChangedEvent e in boolSettingObject.GetComponentsInChildren<LocalizationChangedEvent>())
+                            Object.Destroy(e);
                         boolSettingObject.name = $"Button Toggle {keybind.modGuid} {name}";
                         boolSettingObject.GetComponent<MenuKeybindToggle>().inputKey = keybind.inputKey;
                         MenuTwoOptions menuTwoOptions = boolSettingObject.GetComponent<MenuTwoOptions>();
@@ -143,6 +151,8 @@ namespace KeybindLib.Patches
                     if (applyCategoryOffset)
                         currentPosition -= _boolSettingCategoryOffset;
                     GameObject categoryBoolSettingObject = Object.Instantiate(boolSetting);
+                    foreach (LocalizationChangedEvent e in categoryBoolSettingObject.GetComponentsInChildren<LocalizationChangedEvent>())
+                        Object.Destroy(e);
                     categoryBoolSettingObject.name = $"Toggle {keybind.modGuid} {keybind.category}";
                     categoryBoolSettingObject.GetComponent<MenuKeybindToggle>().inputKey = keybind.inputKey;
                     MenuTwoOptions menuTwoOptions = categoryBoolSettingObject.GetComponent<MenuTwoOptions>();

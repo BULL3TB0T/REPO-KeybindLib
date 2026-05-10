@@ -13,7 +13,7 @@ namespace KeybindLib
     {
         private const string modGUID = "bulletbot.keybindlib";
         private const string modName = "KeybindLib";
-        private const string modVer = "1.0.5";
+        private const string modVer = "1.0.6";
 
         internal static Plugin instance;
         internal ManualLogSource logger;

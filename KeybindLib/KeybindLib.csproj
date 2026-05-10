@@ -76,7 +76,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /q/y/i "$(TargetPath)" "D:\r2modman\REPO\profiles\vanilla modded\BepInEx\plugins\BULLETBOT-KeybindLib" /E /H /C
+    <PostBuildEvent>xcopy /q/y/i "$(TargetPath)" "C:\Users\BULLETBOT\Desktop\Games\r2modman\REPO\profiles\vanilla modded\BepInEx\plugins\BULLETBOT-KeybindLib" /E /H /C
 xcopy /q/y/i "$(TargetPath)" "C:\Users\BULLETBOT\Documents\GitHub\REPO-KeybindLib\Upload" /E /H /C</PostBuildEvent>
   </PropertyGroup>
 </Project>
