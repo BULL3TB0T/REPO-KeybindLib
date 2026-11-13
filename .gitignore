@@ -419,3 +419,6 @@ FodyWeavers.xsd
 
 Upload
 Upload.zip
+
+include/*
+!include/.gitkeep
