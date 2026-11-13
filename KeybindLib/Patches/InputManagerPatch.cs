@@ -59,7 +59,7 @@ namespace KeybindLib.Patches
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldflda, AccessTools.Field(typeof(InputManager), "inputActions")),
                     new CodeInstruction(OpCodes.Ldarg_0),
-                    new CodeInstruction(OpCodes.Ldflda, AccessTools.Field(typeof(InputManager), "inputToggle")),
+                    new CodeInstruction(OpCodes.Ldflda, AccessTools.Field(typeof(InputManager), "inputToggleKeyboardMouse")),
                     new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(InputManagerPatch), "InitializeInputs"))
                 );
             }
